@@ -12,8 +12,5 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //EditText editText = (EditText) findViewById(R.id.et_input);
-        //editText.addTextChangedListener();
-
     }
 }
