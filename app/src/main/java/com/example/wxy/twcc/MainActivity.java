@@ -197,7 +197,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 num_input1 = 0;
                 num_input2 = 0;
                 num_output = 0;
+                fh = '\0';
                 textView_output.setText("");
+                textView_output1.setText("");
                 break;
             case R.id.button_jia:
                 if (input1) {
@@ -205,9 +207,31 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     fh = '+';
                     textView_output1.setText("+");
                 }
-                else
-                    Toast.makeText(MainActivity.this, "暂不支持三数运算",
-                            Toast.LENGTH_SHORT).show();
+                else {
+                    num_input1 = Double.parseDouble(str_input1);
+                    num_input2 = Double.parseDouble(str_input2);
+                    if (fh == '+')
+                        num_output = num_input1 + num_input2;
+                    else if (fh == '-')
+                        num_output = num_input1 - num_input2;
+                    else if (fh == '*')
+                        num_output = num_input1 * num_input2;
+                    else if (fh == '/')
+                        num_output = num_input1 / num_input2;
+                    str_output = Double.toString(num_output);
+                    int a = (int)num_output;
+                    if (a == num_output){
+                        str_output = str_output.substring(0, str_output.length()-1);
+                        str_output = str_output.substring(0, str_output.length()-1);
+                    }
+                    textView_output.setText(str_output);
+                    num_input1 = num_output;
+                    num_output = 0;
+                    num_input2 = 0;
+                    str_input2 = "";
+                    fh = '+';
+                    textView_output1.setText("+");
+                }
                 break;
             case R.id.button_cheng:
                 if (input1) {
@@ -215,9 +239,31 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     fh = '*';
                     textView_output1.setText("×");
                 }
-                else
-                    Toast.makeText(MainActivity.this, "暂不支持三数运算",
-                            Toast.LENGTH_SHORT).show();
+                else {
+                    num_input1 = Double.parseDouble(str_input1);
+                    num_input2 = Double.parseDouble(str_input2);
+                    if (fh == '+')
+                        num_output = num_input1 + num_input2;
+                    else if (fh == '-')
+                        num_output = num_input1 - num_input2;
+                    else if (fh == '*')
+                        num_output = num_input1 * num_input2;
+                    else if (fh == '/')
+                        num_output = num_input1 / num_input2;
+                    str_output = Double.toString(num_output);
+                    int a = (int)num_output;
+                    if (a == num_output){
+                        str_output = str_output.substring(0, str_output.length()-1);
+                        str_output = str_output.substring(0, str_output.length()-1);
+                    }
+                    textView_output.setText(str_output);
+                    num_input1 = num_output;
+                    num_output = 0;
+                    num_input2 = 0;
+                    str_input2 = "";
+                    fh = '*';
+                    textView_output1.setText("×");
+                }
                 break;
             case R.id.button_chu:
                 if (input1) {
@@ -225,9 +271,31 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     fh = '/';
                     textView_output1.setText("÷");
                 }
-                else
-                    Toast.makeText(MainActivity.this, "暂不支持三数运算",
-                            Toast.LENGTH_SHORT).show();
+                else {
+                    num_input1 = Double.parseDouble(str_input1);
+                    num_input2 = Double.parseDouble(str_input2);
+                    if (fh == '+')
+                        num_output = num_input1 + num_input2;
+                    else if (fh == '-')
+                        num_output = num_input1 - num_input2;
+                    else if (fh == '*')
+                        num_output = num_input1 * num_input2;
+                    else if (fh == '/')
+                        num_output = num_input1 / num_input2;
+                    str_output = Double.toString(num_output);
+                    int a = (int)num_output;
+                    if (a == num_output){
+                        str_output = str_output.substring(0, str_output.length()-1);
+                        str_output = str_output.substring(0, str_output.length()-1);
+                    }
+                    textView_output.setText(str_output);
+                    num_input1 = num_output;
+                    num_output = 0;
+                    num_input2 = 0;
+                    str_input2 = "";
+                    fh = '/';
+                    textView_output1.setText("÷");
+                }
                 break;
             case R.id.button_jian:
                 if (input1) {
@@ -235,9 +303,31 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     fh = '-';
                     textView_output1.setText("-");
                 }
-                else
-                    Toast.makeText(MainActivity.this, "暂不支持三数运算",
-                            Toast.LENGTH_SHORT).show();
+                else {
+                    num_input1 = Double.parseDouble(str_input1);
+                    num_input2 = Double.parseDouble(str_input2);
+                    if (fh == '+')
+                        num_output = num_input1 + num_input2;
+                    else if (fh == '-')
+                        num_output = num_input1 - num_input2;
+                    else if (fh == '*')
+                        num_output = num_input1 * num_input2;
+                    else if (fh == '/')
+                        num_output = num_input1 / num_input2;
+                    str_output = Double.toString(num_output);
+                    int a = (int)num_output;
+                    if (a == num_output){
+                        str_output = str_output.substring(0, str_output.length()-1);
+                        str_output = str_output.substring(0, str_output.length()-1);
+                    }
+                    textView_output.setText(str_output);
+                    num_input1 = num_output;
+                    num_output = 0;
+                    num_input2 = 0;
+                    str_input2 = "";
+                    fh = '-';
+                    textView_output1.setText("-");
+                }
                 break;
             case R.id.button_dy:
                 num_input1 = Double.parseDouble(str_input1);
