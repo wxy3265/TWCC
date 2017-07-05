@@ -208,29 +208,35 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     textView_output1.setText("+");
                 }
                 else {
-                    num_input1 = Double.parseDouble(str_input1);
-                    num_input2 = Double.parseDouble(str_input2);
-                    if (fh == '+')
-                        num_output = num_input1 + num_input2;
-                    else if (fh == '-')
-                        num_output = num_input1 - num_input2;
-                    else if (fh == '*')
-                        num_output = num_input1 * num_input2;
-                    else if (fh == '/')
-                        num_output = num_input1 / num_input2;
-                    str_output = Double.toString(num_output);
-                    int a = (int)num_output;
-                    if (a == num_output){
-                        str_output = str_output.substring(0, str_output.length()-1);
-                        str_output = str_output.substring(0, str_output.length()-1);
+                    if (str_input2 == "") {
+                        fh = '+';
+                        textView_output1.setText("+");
                     }
-                    textView_output.setText(str_output);
-                    num_input1 = num_output;
-                    num_output = 0;
-                    num_input2 = 0;
-                    str_input2 = "";
-                    fh = '+';
-                    textView_output1.setText("+");
+                    else {
+                        num_input1 = Double.parseDouble(str_input1);
+                        num_input2 = Double.parseDouble(str_input2);
+                        if (fh == '+')
+                            num_output = num_input1 + num_input2;
+                        else if (fh == '-')
+                            num_output = num_input1 - num_input2;
+                        else if (fh == '*')
+                            num_output = num_input1 * num_input2;
+                        else if (fh == '/')
+                            num_output = num_input1 / num_input2;
+                        str_output = Double.toString(num_output);
+                        int a = (int) num_output;
+                        if (a == num_output) {
+                            str_output = str_output.substring(0, str_output.length() - 1);
+                            str_output = str_output.substring(0, str_output.length() - 1);
+                        }
+                        textView_output.setText(str_output);
+                        num_input1 = num_output;
+                        num_output = 0;
+                        num_input2 = 0;
+                        str_input2 = "";
+                        fh = '+';
+                        textView_output1.setText("+");
+                    }
                 }
                 break;
             case R.id.button_cheng:
@@ -240,29 +246,35 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     textView_output1.setText("×");
                 }
                 else {
-                    num_input1 = Double.parseDouble(str_input1);
-                    num_input2 = Double.parseDouble(str_input2);
-                    if (fh == '+')
-                        num_output = num_input1 + num_input2;
-                    else if (fh == '-')
-                        num_output = num_input1 - num_input2;
-                    else if (fh == '*')
-                        num_output = num_input1 * num_input2;
-                    else if (fh == '/')
-                        num_output = num_input1 / num_input2;
-                    str_output = Double.toString(num_output);
-                    int a = (int)num_output;
-                    if (a == num_output){
-                        str_output = str_output.substring(0, str_output.length()-1);
-                        str_output = str_output.substring(0, str_output.length()-1);
+                    if (str_input2 == "") {
+                        fh = '*';
+                        textView_output1.setText("×");
                     }
-                    textView_output.setText(str_output);
-                    num_input1 = num_output;
-                    num_output = 0;
-                    num_input2 = 0;
-                    str_input2 = "";
-                    fh = '*';
-                    textView_output1.setText("×");
+                    else {
+                        num_input1 = Double.parseDouble(str_input1);
+                        num_input2 = Double.parseDouble(str_input2);
+                        if (fh == '+')
+                            num_output = num_input1 + num_input2;
+                        else if (fh == '-')
+                            num_output = num_input1 - num_input2;
+                        else if (fh == '*')
+                            num_output = num_input1 * num_input2;
+                        else if (fh == '/')
+                            num_output = num_input1 / num_input2;
+                        str_output = Double.toString(num_output);
+                        int a = (int) num_output;
+                        if (a == num_output) {
+                            str_output = str_output.substring(0, str_output.length() - 1);
+                            str_output = str_output.substring(0, str_output.length() - 1);
+                        }
+                        textView_output.setText(str_output);
+                        num_input1 = num_output;
+                        num_output = 0;
+                        num_input2 = 0;
+                        str_input2 = "";
+                        fh = '*';
+                        textView_output1.setText("×");
+                    }
                 }
                 break;
             case R.id.button_chu:
@@ -272,29 +284,35 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     textView_output1.setText("÷");
                 }
                 else {
-                    num_input1 = Double.parseDouble(str_input1);
-                    num_input2 = Double.parseDouble(str_input2);
-                    if (fh == '+')
-                        num_output = num_input1 + num_input2;
-                    else if (fh == '-')
-                        num_output = num_input1 - num_input2;
-                    else if (fh == '*')
-                        num_output = num_input1 * num_input2;
-                    else if (fh == '/')
-                        num_output = num_input1 / num_input2;
-                    str_output = Double.toString(num_output);
-                    int a = (int)num_output;
-                    if (a == num_output){
-                        str_output = str_output.substring(0, str_output.length()-1);
-                        str_output = str_output.substring(0, str_output.length()-1);
+                    if (str_input2 == "") {
+                        fh = '/';
+                        textView_output1.setText("÷");
                     }
-                    textView_output.setText(str_output);
-                    num_input1 = num_output;
-                    num_output = 0;
-                    num_input2 = 0;
-                    str_input2 = "";
-                    fh = '/';
-                    textView_output1.setText("÷");
+                    else {
+                        num_input1 = Double.parseDouble(str_input1);
+                        num_input2 = Double.parseDouble(str_input2);
+                        if (fh == '+')
+                            num_output = num_input1 + num_input2;
+                        else if (fh == '-')
+                            num_output = num_input1 - num_input2;
+                        else if (fh == '*')
+                            num_output = num_input1 * num_input2;
+                        else if (fh == '/')
+                            num_output = num_input1 / num_input2;
+                        str_output = Double.toString(num_output);
+                        int a = (int) num_output;
+                        if (a == num_output) {
+                            str_output = str_output.substring(0, str_output.length() - 1);
+                            str_output = str_output.substring(0, str_output.length() - 1);
+                        }
+                        textView_output.setText(str_output);
+                        num_input1 = num_output;
+                        num_output = 0;
+                        num_input2 = 0;
+                        str_input2 = "";
+                        fh = '/';
+                        textView_output1.setText("÷");
+                    }
                 }
                 break;
             case R.id.button_jian:
@@ -304,29 +322,35 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     textView_output1.setText("-");
                 }
                 else {
-                    num_input1 = Double.parseDouble(str_input1);
-                    num_input2 = Double.parseDouble(str_input2);
-                    if (fh == '+')
-                        num_output = num_input1 + num_input2;
-                    else if (fh == '-')
-                        num_output = num_input1 - num_input2;
-                    else if (fh == '*')
-                        num_output = num_input1 * num_input2;
-                    else if (fh == '/')
-                        num_output = num_input1 / num_input2;
-                    str_output = Double.toString(num_output);
-                    int a = (int)num_output;
-                    if (a == num_output){
-                        str_output = str_output.substring(0, str_output.length()-1);
-                        str_output = str_output.substring(0, str_output.length()-1);
+                    if (str_input2 == "") {
+                        fh = '-';
+                        textView_output1.setText("-");
                     }
-                    textView_output.setText(str_output);
-                    num_input1 = num_output;
-                    num_output = 0;
-                    num_input2 = 0;
-                    str_input2 = "";
-                    fh = '-';
-                    textView_output1.setText("-");
+                    else {
+                        num_input1 = Double.parseDouble(str_input1);
+                        num_input2 = Double.parseDouble(str_input2);
+                        if (fh == '+')
+                            num_output = num_input1 + num_input2;
+                        else if (fh == '-')
+                            num_output = num_input1 - num_input2;
+                        else if (fh == '*')
+                            num_output = num_input1 * num_input2;
+                        else if (fh == '/')
+                            num_output = num_input1 / num_input2;
+                        str_output = Double.toString(num_output);
+                        int a = (int) num_output;
+                        if (a == num_output) {
+                            str_output = str_output.substring(0, str_output.length() - 1);
+                            str_output = str_output.substring(0, str_output.length() - 1);
+                        }
+                        textView_output.setText(str_output);
+                        num_input1 = num_output;
+                        num_output = 0;
+                        num_input2 = 0;
+                        str_input2 = "";
+                        fh = '-';
+                        textView_output1.setText("-");
+                    }
                 }
                 break;
             case R.id.button_dy:
