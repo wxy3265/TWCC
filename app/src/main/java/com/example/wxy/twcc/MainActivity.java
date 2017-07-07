@@ -11,10 +11,10 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements View.OnClickListener{
 
-    String str_input1 = "";
-    String str_input2 = "";
-    String str_output = "";
-    double num_input1 = 0;
+    String str_input1 = "";//第一个数的输入字符串
+    String str_input2 = "";//第二个数的输入字符串
+    String str_output = "";//得数的输出字符串
+    double num_input1 = 0;//第一个数的输入数字
     double num_input2 = 0;
     double num_output = 0;
     boolean input1 = true;
