@@ -1,5 +1,5 @@
-##V1.0
-###  TWCC ¡ª¡ª Talk With Computer Calculator
-#Ò»¸ö¼ò½à¿ªÔ´µÄ°²×¿¼ÆËãÆ÷
+###V1.0
+#  TWCC â€”â€” Talk With Computer Calculator
+ä¸€ä¸ªç®€æ´å¼€æºçš„å®‰å“è®¡ç®—å™¨
 
 
