@@ -5,6 +5,7 @@
 
     <TextView
         android:id="@+id/tv_output"
+        android:text="0"
         android:layout_marginTop="50sp"
         android:layout_width="350sp"
         android:layout_height="60sp"

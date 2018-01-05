@@ -11,14 +11,27 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements View.OnClickListener{
 
-    String str_input1 = "";//第一个数的输入字符串
-    String str_input2 = "";//第二个数的输入字符串
-    String str_output = "";//得数的输出字符串
+    /*String str_input1 = "0";//第一个数的输入字符串
+    String str_input2 = "0";//第二个数的输入字符串
+    String str_output = "";//得数的输出字符串*/
+    boolean point = false;
     double num_input1 = 0;//第一个数的输入数字
-    double num_input2 = 0;
-    double num_output = 0;
-    boolean input1 = true;
-    char fh;
+    double num_input2 = 0;//第二个数的输入数字
+    double num_output = 0;//输出数字
+    boolean input1 = true;//是否正在输入第一个数字
+    boolean input3 = false;//是否正在输入第三个数字
+    int ws = 0;//记录输入数据的位数
+    int point_ws;
+
+    char op;//操作符号
+
+    private double Dy(double a, double b) {
+        if (op == '+') return a + b;
+        else if (op == '-') return a - b;
+        else if (op == '*') return a * b;
+        else if (op == '/') return a / b;
+        return 0;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,313 +85,271 @@ public class MainActivity extends Activity implements View.OnClickListener{
         switch (v.getId()) {
             case R.id.button_0:
                 if (input1) {
-                    str_input1 += "0";
-                    textView_output.setText(str_input1);
-                }
-                else {
-                    str_input2 += "0";
-                    textView_output.setText(str_input2);
+                    if (ws < 9) {
+                        num_input1 *= 10;
+                        textView_output.setText(num_input1 - (int) num_input1 != 0 ? Double.toString(num_input1) : Integer.toString((int) num_input1));
+                        ws++;
+                    }
+                } else {
+                    if (ws < 9 ){
+                        num_input2 *= 10;
+                        textView_output.setText(num_input2 - (int) num_input2 != 0 ? Double.toString(num_input2) : Integer.toString((int) num_input2));
+                        ws++;
+                    }
                 }
                 break;
             case R.id.button_1:
-                if (input1) {
-                    str_input1 += "1";
-                    textView_output.setText(str_input1);
-                }
-                else {
-                    str_input2 += "1";
-                    textView_output.setText(str_input2);
+                if (ws < 9) {
+                    if (input1) {
+                        num_input1 = num_input1 * 10 + 1;
+                        textView_output.setText(num_input1 - (int) num_input1 != 0 ? Double.toString(num_input1) : Integer.toString((int) num_input1));
+                        ws++;
+                    } else {
+                        num_input2 = num_input2 * 10 + 1;
+                        textView_output.setText(num_input2 - (int) num_input2 != 0 ? Double.toString(num_input2) : Integer.toString((int) num_input2));
+                        ws++;
+                    }
                 }
                 break;
             case R.id.button_2:
-                if (input1) {
-                    str_input1 += "2";
-                    textView_output.setText(str_input1);
-                }
-                else {
-                    str_input2 += "2";
-                    textView_output.setText(str_input2);
+                if (ws < 9) {
+                    if (input1) {
+                        num_input1 = num_input1 * 10 + 2;
+                        textView_output.setText(num_input1 - (int) num_input1 != 0 ? Double.toString(num_input1) : Integer.toString((int) num_input1));
+                        ws++;
+                    } else {
+                        num_input2 = num_input2 * 10 + 2;
+                        textView_output.setText(num_input2 - (int) num_input2 != 0 ? Double.toString(num_input2) : Integer.toString((int) num_input2));
+                        ws++;
+                    }
                 }
                 break;
             case R.id.button_3:
-                if (input1) {
-                    str_input1 += "3";
-                    textView_output.setText(str_input1);
-                }
-                else {
-                    str_input2 += "3";
-                    textView_output.setText(str_input2);
+                if (ws < 9) {
+                    if (input1) {
+                        num_input1 = num_input1 * 10 + 3;
+                        textView_output.setText(num_input1 - (int) num_input1 != 0 ? Double.toString(num_input1) : Integer.toString((int) num_input1));
+                        ws++;
+                    } else {
+                        num_input2 = num_input2 * 10 + 3;
+                        textView_output.setText(num_input2 - (int) num_input2 != 0 ? Double.toString(num_input2) : Integer.toString((int) num_input2));
+                        ws++;
+                    }
                 }
                 break;
             case R.id.button_4:
-                if (input1) {
-                    str_input1 += "4";
-                    textView_output.setText(str_input1);
-                }
-                else {
-                    str_input2 += "4";
-                    textView_output.setText(str_input2);
+                if (ws < 9) {
+                    if (input1) {
+                        num_input1 = num_input1 * 10 + 4;
+                        textView_output.setText(num_input1 - (int) num_input1 != 0 ? Double.toString(num_input1) : Integer.toString((int) num_input1));
+                        ws++;
+                    } else {
+                        num_input2 = num_input2 * 10 + 4;
+                        textView_output.setText(num_input2 - (int) num_input2 != 0 ? Double.toString(num_input2) : Integer.toString((int) num_input2));
+                        ws++;
+                    }
                 }
                 break;
             case R.id.button_5:
-                if (input1) {
-                    str_input1 += "5";
-                    textView_output.setText(str_input1);
-                }
-                else {
-                    str_input2 += "5";
-                    textView_output.setText(str_input2);
+                if (ws < 9) {
+                    if (input1) {
+                        num_input1 = num_input1 * 10 + 5;
+                        textView_output.setText(num_input1 - (int) num_input1 != 0 ? Double.toString(num_input1) : Integer.toString((int) num_input1));
+                        ws++;
+                    } else {
+                        num_input2 = num_input2 * 10 + 5;
+                        textView_output.setText(num_input2 - (int) num_input2 != 0 ? Double.toString(num_input2) : Integer.toString((int) num_input2));
+                        ws++;
+                    }
                 }
                 break;
             case R.id.button_6:
-                if (input1) {
-                    str_input1 += "6";
-                    textView_output.setText(str_input1);
-                }
-                else {
-                    str_input2 += "6";
-                    textView_output.setText(str_input2);
+                if (ws < 9) {
+                    if (input1) {
+                        num_input1 = num_input1 * 10 + 6;
+                        textView_output.setText(num_input1 - (int) num_input1 != 0 ? Double.toString(num_input1) : Integer.toString((int) num_input1));
+                        ws++;
+                    } else {
+                        num_input2 = num_input2 * 10 + 6;
+                        textView_output.setText(num_input2 - (int) num_input2 != 0 ? Double.toString(num_input2) : Integer.toString((int) num_input2));
+                        ws++;
+                    }
                 }
                 break;
             case R.id.button_7:
-                if (input1) {
-                    str_input1 += "7";
-                    textView_output.setText(str_input1);
-                }
-                else {
-                    str_input2 += "7";
-                    textView_output.setText(str_input2);
+                if (ws < 9) {
+                    if (input1) {
+                        num_input1 = num_input1 * 10 + 7;
+                        textView_output.setText(num_input1 - (int) num_input1 != 0 ? Double.toString(num_input1) : Integer.toString((int) num_input1));
+                        ws++;
+                    } else {
+                        num_input2 = num_input2 * 10 + 7;
+                        textView_output.setText(num_input2 - (int) num_input2 != 0 ? Double.toString(num_input2) : Integer.toString((int) num_input2));
+                        ws++;
+                    }
                 }
                 break;
             case R.id.button_8:
-                if (input1) {
-                    str_input1 += "8";
-                    textView_output.setText(str_input1);
-                }
-                else {
-                    str_input2 += "8";
-                    textView_output.setText(str_input2);
+                if (ws < 9) {
+                    if (input1) {
+                        num_input1 = num_input1 * 10 + 8;
+                        textView_output.setText(num_input1 - (int) num_input1 != 0 ? Double.toString(num_input1) : Integer.toString((int) num_input1));
+                        ws++;
+                    } else {
+                        num_input2 = num_input2 * 10 + 8;
+                        textView_output.setText(num_input2 - (int) num_input2 != 0 ? Double.toString(num_input2) : Integer.toString((int) num_input2));
+                        ws++;
+                    }
                 }
                 break;
             case R.id.button_9:
-                if (input1) {
-                    str_input1 += "9";
-                    textView_output.setText(str_input1);
-                }
-                else {
-                    str_input2 += "9";
-                    textView_output.setText(str_input2);
+                if (ws < 9) {
+                    if (input1) {
+                        num_input1 = num_input1 * 10 + 9;
+                        textView_output.setText(num_input1 - (int) num_input1 != 0 ? Double.toString(num_input1) : Integer.toString((int) num_input1));
+                        ws++;
+                    } else {
+                        num_input2 = num_input2 * 10 + 9;
+                        textView_output.setText(num_input2 - (int) num_input2 != 0 ? Double.toString(num_input2) : Integer.toString((int) num_input2));
+                        ws++;
+                    }
                 }
                 break;
             case R.id.button_point:
-                if (input1) {
-                    str_input1 += ".";
-                    textView_output.setText(str_input1);
+                if (!point) {
+                    point = true;
                 }
-                else {
-                    str_input2 += ".";
-                    textView_output.setText(str_input2);
-                }
-                break;
-            case R.id.button_delet:
-                if (input1) {
-                    str_input1 = str_input1.substring(0, str_input1.length()-1);
-                    textView_output.setText(str_input1);
-                }
-                else {
-                    str_input2 = str_input2.substring(0, str_input2.length()-1);
-                    textView_output.setText(str_input2);
-                }
-                break;
-            case R.id.button_clean:
-                str_input1 = "";
-                str_input2 = "";
-                str_output = "";
-                num_input1 = 0;
-                num_input2 = 0;
-                num_output = 0;
-                fh = '\0';
-                textView_output.setText("");
-                textView_output1.setText("");
                 break;
             case R.id.button_jia:
-                if (input1) {
+                if (input1 && (!input3)) {
                     input1 = false;
-                    fh = '+';
+                    op = '+';
                     textView_output1.setText("+");
-                }
-                else {
-                    if (str_input2 == "") {
-                        fh = '+';
-                        textView_output1.setText("+");
-                    }
-                    else {
-                        num_input1 = Double.parseDouble(str_input1);
-                        num_input2 = Double.parseDouble(str_input2);
-                        if (fh == '+')
-                            num_output = num_input1 + num_input2;
-                        else if (fh == '-')
-                            num_output = num_input1 - num_input2;
-                        else if (fh == '*')
-                            num_output = num_input1 * num_input2;
-                        else if (fh == '/')
-                            num_output = num_input1 / num_input2;
-                        str_output = Double.toString(num_output);
-                        int a = (int) num_output;
-                        if (a == num_output) {
-                            str_output = str_output.substring(0, str_output.length() - 1);
-                            str_output = str_output.substring(0, str_output.length() - 1);
-                        }
-                        textView_output.setText(str_output);
-                        num_input1 = num_output;
-                        num_output = 0;
-                        num_input2 = 0;
-                        str_input2 = "";
-                        fh = '+';
-                        textView_output1.setText("+");
-                    }
-                }
-                break;
-            case R.id.button_cheng:
-                if (input1) {
-                    input1 = false;
-                    fh = '*';
-                    textView_output1.setText("×");
-                }
-                else {
-                    if (str_input2 == "") {
-                        fh = '*';
-                        textView_output1.setText("×");
-                    }
-                    else {
-                        num_input1 = Double.parseDouble(str_input1);
-                        num_input2 = Double.parseDouble(str_input2);
-                        if (fh == '+')
-                            num_output = num_input1 + num_input2;
-                        else if (fh == '-')
-                            num_output = num_input1 - num_input2;
-                        else if (fh == '*')
-                            num_output = num_input1 * num_input2;
-                        else if (fh == '/')
-                            num_output = num_input1 / num_input2;
-                        str_output = Double.toString(num_output);
-                        int a = (int) num_output;
-                        if (a == num_output) {
-                            str_output = str_output.substring(0, str_output.length() - 1);
-                            str_output = str_output.substring(0, str_output.length() - 1);
-                        }
-                        textView_output.setText(str_output);
-                        num_input1 = num_output;
-                        num_output = 0;
-                        num_input2 = 0;
-                        str_input2 = "";
-                        fh = '*';
-                        textView_output1.setText("×");
-                    }
-                }
-                break;
-            case R.id.button_chu:
-                if (input1) {
-                    input1 = false;
-                    fh = '/';
-                    textView_output1.setText("÷");
-                }
-                else {
-                    if (str_input2 == "") {
-                        fh = '/';
-                        textView_output1.setText("÷");
-                    }
-                    else {
-                        num_input1 = Double.parseDouble(str_input1);
-                        num_input2 = Double.parseDouble(str_input2);
-                        if (fh == '+')
-                            num_output = num_input1 + num_input2;
-                        else if (fh == '-')
-                            num_output = num_input1 - num_input2;
-                        else if (fh == '*')
-                            num_output = num_input1 * num_input2;
-                        else if (fh == '/')
-                            num_output = num_input1 / num_input2;
-                        str_output = Double.toString(num_output);
-                        int a = (int) num_output;
-                        if (a == num_output) {
-                            str_output = str_output.substring(0, str_output.length() - 1);
-                            str_output = str_output.substring(0, str_output.length() - 1);
-                        }
-                        textView_output.setText(str_output);
-                        num_input1 = num_output;
-                        num_output = 0;
-                        num_input2 = 0;
-                        str_input2 = "";
-                        fh = '/';
-                        textView_output1.setText("÷");
-                    }
+                    ws = 0;
+                } else if (!input1){
+                    input1 = true;
+                    input3 = true;
+                    num_output = Dy(num_input1, num_input2);
+                    op = '+';
+                    textView_output.setText(num_output - (int) num_output != 0 ? Double.toString(num_output) : Integer.toString((int)num_output));
+                    textView_output1.setText("+");
+                    num_input1 = 0;
+                    ws = 0;
+                } else if (input3) {
+                    num_output = Dy(num_output, num_input1);
+                    op = '+';
+                    textView_output.setText(num_output - (int) num_output != 0 ? Double.toString(num_output) : Integer.toString((int)num_output));
+                    textView_output1.setText("+");
+                    num_input1 = 0;
+                    ws = 0;
                 }
                 break;
             case R.id.button_jian:
-                if (input1) {
+                if (input1 && (!input3)) {
                     input1 = false;
-                    fh = '-';
+                    op = '-';
                     textView_output1.setText("-");
+                    ws = 0;
+                } else if (!input1){
+                    input1 = true;
+                    input3 = true;
+                    num_output = Dy(num_input1, num_input2);
+                    op = '-';
+                    textView_output.setText(num_output - (int) num_output != 0 ? Double.toString(num_output) : Integer.toString((int)num_output));
+                    textView_output1.setText("-");
+                    num_input1 = 0;
+                    ws = 0;
+                } else if (input3) {
+                    num_output = Dy(num_output, num_input1);
+                    op = '-';
+                    textView_output.setText(num_output - (int) num_output != 0 ? Double.toString(num_output) : Integer.toString((int)num_output));
+                    textView_output1.setText("-");
+                    num_input1 = 0;
+                    ws = 0;
                 }
-                else {
-                    if (str_input2 == "") {
-                        fh = '-';
-                        textView_output1.setText("-");
-                    }
-                    else {
-                        num_input1 = Double.parseDouble(str_input1);
-                        num_input2 = Double.parseDouble(str_input2);
-                        if (fh == '+')
-                            num_output = num_input1 + num_input2;
-                        else if (fh == '-')
-                            num_output = num_input1 - num_input2;
-                        else if (fh == '*')
-                            num_output = num_input1 * num_input2;
-                        else if (fh == '/')
-                            num_output = num_input1 / num_input2;
-                        str_output = Double.toString(num_output);
-                        int a = (int) num_output;
-                        if (a == num_output) {
-                            str_output = str_output.substring(0, str_output.length() - 1);
-                            str_output = str_output.substring(0, str_output.length() - 1);
-                        }
-                        textView_output.setText(str_output);
-                        num_input1 = num_output;
-                        num_output = 0;
-                        num_input2 = 0;
-                        str_input2 = "";
-                        fh = '-';
-                        textView_output1.setText("-");
-                    }
+                break;
+            case R.id.button_chu:
+                if (input1 && (!input3)) {
+                    input1 = false;
+                    op = '/';
+                    textView_output1.setText("·/·");
+                    ws = 0;
+                } else if (!input1){
+                    input1 = true;
+                    input3 = true;
+                    num_output = Dy(num_input1, num_input2);
+                    op = '/';
+                    textView_output.setText(num_output - (int) num_output != 0 ? Double.toString(num_output) : Integer.toString((int)num_output));
+                    textView_output1.setText("·/·");
+                    num_input1 = 0;
+                    ws = 0;
+                } else if (input3) {
+                    num_output = Dy(num_output, num_input1);
+                    op = '/';
+                    textView_output.setText(num_output - (int) num_output != 0 ? Double.toString(num_output) : Integer.toString((int)num_output));
+                    textView_output1.setText("·/·");
+                    num_input1 = 0;
+                    ws = 0;
+                }
+                break;
+            case R.id.button_cheng:
+                if (input1 && (!input3)) {
+                    input1 = false;
+                    op = '*';
+                    textView_output1.setText("X️");
+                    ws = 0;
+                } else if (!input1){
+                    input1 = true;
+                    input3 = true;
+                    num_output = Dy(num_input1, num_input2);
+                    op = '*';
+                    textView_output.setText(num_output - (int) num_output != 0 ? Double.toString(num_output) : Integer.toString((int)num_output));
+                    textView_output1.setText("X️");
+                    num_input1 = 0;
+                    ws = 0;
+                } else if (input3) {
+                    num_output = Dy(num_output, num_input1);
+                    op = '*';
+                    textView_output.setText(num_output - (int) num_output != 0 ? Double.toString(num_output) : Integer.toString((int)num_output));
+                    textView_output1.setText("X️");
+                    num_input1 = 0;
+                    ws = 0;
                 }
                 break;
             case R.id.button_dy:
-                num_input1 = Double.parseDouble(str_input1);
-                num_input2 = Double.parseDouble(str_input2);
-                if (fh == '+')
-                    num_output = num_input1 + num_input2;
-                else if (fh == '-')
-                    num_output = num_input1 - num_input2;
-                else if (fh == '*')
-                    num_output = num_input1 * num_input2;
-                else if (fh == '/')
-                    num_output = num_input1 / num_input2;
-                str_output = Double.toString(num_output);
-                int a = (int)num_output;
-                if (a == num_output){
-                    str_output = str_output.substring(0, str_output.length()-1);
-                    str_output = str_output.substring(0, str_output.length()-1);
+                if (input1 && (!input3)) {
+                    textView_output1.setText(" ");
+                } else if (!input1){
+                    input1 = false;
+                    input3 = false;
+                    num_output = Dy(num_input1, num_input2);
+                    textView_output.setText(num_output - (int) num_output != 0 ? Double.toString(num_output) : Integer.toString((int)num_output));
+                    textView_output1.setText(" ️");
+                    num_input1 = num_output;
+                    num_input2 = 0;
+                    num_output = 0;
+                    ws = 0;
+                } else if (input3) {
+                    input1 = false;
+                    input3 = false;
+                    num_output = Dy(num_output, num_input1);
+                    textView_output.setText(num_output - (int) num_output != 0 ? Double.toString(num_output) : Integer.toString((int)num_output));
+                    textView_output1.setText(" ️");
+                    num_input1 = num_output;
+                    num_input2 = 0;
+                    num_output = 0;
+                    ws = 0;
                 }
-                textView_output.setText(str_output);
+                break;
+            case R.id.button_clean:
                 input1 = true;
+                input3 = false;
+                textView_output.setText("0");
+                textView_output1.setText(" ️");
                 num_input1 = 0;
                 num_input2 = 0;
                 num_output = 0;
-                str_input1 = "";
-                str_input2 = "";
-                str_output = "";
-                textView_output1.setText("");
+                ws = 0;
                 break;
             default:
                 break;
